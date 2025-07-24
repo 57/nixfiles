@@ -22,7 +22,9 @@
     # Overlay to expose Claude Desktop (MCP-enabled) as a regular package
     overlays = [
       (final: prev: {
-        claude-desktop-with-fhs = claude-desktop.packages.${prev.system}.claude-desktop-with-fhs;
+        # use the system defined in the enclosing let (x86_64-linux)
+        # instead of prev.system (which may be undefined)
+        claude-desktop-with-fhs = claude-desktop.packages.${system}.claude-desktop-with-fhs;
       })
     ];
 
