@@ -47,3 +47,11 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+
+;; Catppuccin theme and Discord Rich Presence
+(package! catppuccin-theme)
+(package! elcord)
+(package! rainbow-delimiters)
+(package! rainbow-mode)
+(package! org-modern)
+(package! org-appear)

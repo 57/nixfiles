@@ -32,7 +32,9 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+;; Use Catppuccin theme
+(setq catppuccin-flavor 'mocha) ;; 'latte, 'frappe, 'macchiato or 'mocha
+(setq doom-theme 'catppuccin)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -74,3 +76,26 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Discord Rich Presence
+(use-package! elcord
+  :config
+  (elcord-mode))
+
+;; Pretty parentheses and color codes
+(use-package! rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package! rainbow-mode
+  :hook ((css-mode scss-mode html-mode org-mode) . rainbow-mode))
+
+;; Modern Org look & auto-toggle emphasis markers
+(use-package! org-modern
+  :after org
+  :hook (org-mode . org-modern-mode))
+
+(use-package! org-appear
+  :after org
+  :hook (org-mode . org-appear-mode)
+  :config
+  (setq org-appear-autolinks t))
