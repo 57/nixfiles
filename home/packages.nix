@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
     bat
     bibata-cursors
     catppuccin-gtk
-    claude-desktop-with-fhs
+    (inputs.claude-desktop.packages.${pkgs.system}.claude-desktop-with-fhs)
     dunst
     eza
     fd
