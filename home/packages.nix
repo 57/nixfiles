@@ -1,11 +1,10 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     bat
     bibata-cursors
     catppuccin-gtk
-    # Claude Desktop with FHS wrapper for MCP servers
-    (inputs.claude-desktop.packages.${pkgs.system}.claude-desktop-with-fhs)
+    claude-desktop-with-fhs
     dunst
     eza
     fd
