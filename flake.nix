@@ -34,6 +34,8 @@
       specialArgs = { inherit inputs; }; # pass inputs to modules if needed
       modules = [
         ./configuration.nix
+        # Make Claude Desktop overlay available system-wide
+        ({ pkgs, ... }: { nixpkgs.overlays = overlays; })
         home-manager.nixosModules.home-manager
         {
           home-manager.users.fawn = import ./home.nix;
