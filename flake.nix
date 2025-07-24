@@ -41,6 +41,7 @@
         home-manager.nixosModules.home-manager
         {
           home-manager.users.fawn = import ./home.nix;
+          home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.backupFileExtension = "backup";
         }
       ];
