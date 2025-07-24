@@ -7,11 +7,26 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Claude Desktop (with MCP support) flake
+    flake-utils.url = "github:numtide/flake-utils";
+    claude-desktop = {
+      url = "github:k3d3/claude-desktop-linux-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: let
+  outputs = { self, nixpkgs, home-manager, claude-desktop, flake-utils, ... }@inputs: let
     system = "x86_64-linux";
-    pkgs   = import nixpkgs { inherit system; config.allowUnfree = true; };
+
+    # Overlay to expose Claude Desktop (MCP-enabled) as a regular package
+    overlays = [
+      (final: prev: {
+        claude-desktop-with-fhs = claude-desktop.packages.${prev.system}.claude-desktop-with-fhs;
+      })
+    ];
+
+    pkgs = import nixpkgs { inherit system overlays; config.allowUnfree = true; };
   in {
     # NixOS for this host
     nixosConfigurations.koinu = nixpkgs.lib.nixosSystem {

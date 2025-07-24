@@ -4,6 +4,7 @@
     bat
     bibata-cursors
     catppuccin-gtk
+    claude-desktop-with-fhs
     dunst
     eza
     fd
