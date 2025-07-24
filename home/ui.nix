@@ -39,7 +39,7 @@
 
   # doom emacs link + activation sync
   xdg.configFile."doom".source =
-    lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nixos/doom";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nixfiles/doom";
 
   home.activation.doomSync = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     if [ -x "${config.xdg.configHome}/.config/emacs/bin/doom" ]; then
