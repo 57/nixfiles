@@ -11,6 +11,9 @@
   home.sessionVariables = {
     XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE  = "24";
+    # make electron apps use native Wayland so they render crisply when fractional-scaled
+    NIXOS_OZONE_WL = "1";                     # legacy flag respected by many nix-packaged Electron builds
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";    # new upstream variable (Electron ≥ 28)
   };
 
   # gtk theme
