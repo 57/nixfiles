@@ -1,0 +1,31 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    bat
+    bibata-cursors
+    catppuccin-gtk
+    dunst
+    eza
+    fd
+    font-awesome
+    gnutls
+    grim
+    grimblast
+    hyfetch
+    hypridle
+    hyprlock
+    hyprpaper
+    kitty
+    lm_sensors
+    nerd-fonts.jetbrains-mono
+    ripgrep
+    slurp
+    starship
+    vesktop
+    waybar
+    wl-clipboard
+    wofi
+    zoxide
+    zsh
+  ];
+} 

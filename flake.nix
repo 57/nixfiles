@@ -1,5 +1,5 @@
 {
-  description = "Fawn's NixOS + Home-Manager configuration";
+  description = "fawn's nixos configuration :3";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";

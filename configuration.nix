@@ -93,9 +93,6 @@
     ];
   };
 
-  home-manager.users.fawn = import ./home.nix;
-  home-manager.backupFileExtension = "backup";
-
   # Install firefox.
   programs.firefox.enable = true;
 
